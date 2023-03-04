@@ -30,6 +30,7 @@ public class DetectClick : MonoBehaviour
                 _isMoving = false;
                 connectedObject.transform.position = transform.position;
                 RoomSwapManager.instance.canSwap = true;
+                connectedObject.GetComponent<Giggle>().enabled = false;
             }
             transform.position = Vector3.MoveTowards(transform.position, point1.position, 0.16f);
         }

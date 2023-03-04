@@ -20,7 +20,10 @@ public class Giggle : MonoBehaviour
     private void OnMouseDown()
     {
         _isMoving = true;
-        RoomSwapManager.instance.canSwap = false;
+        if (enabled)
+        {
+            RoomSwapManager.instance.canSwap = false;
+        }
     }
 
     private void Update()
