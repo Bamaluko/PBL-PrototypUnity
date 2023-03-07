@@ -10,6 +10,14 @@ public class RotateOnClick : MonoBehaviour
     public float upperBound;
     public RotateOnClick other;
     public bool isSet = false;
+    public GameObject clockPuzzle;
+    private Vector3 destination;
+
+    private void Start()
+    {
+        destination = new Vector3(clockPuzzle.transform.position.x, clockPuzzle.transform.position.y + 20.0f, clockPuzzle.transform.position.z);
+    }
+
     private void OnMouseDown()
     {
         isRotating = true;
@@ -30,8 +38,7 @@ public class RotateOnClick : MonoBehaviour
     {
         if (isRotating)
         {
-            transform.Rotate(Vector3.up, -.35f * Time.deltaTime * 100);
-            Debug.Log(transform.rotation.eulerAngles.x);
+            transform.Rotate(Vector3.up, -.5f * Time.deltaTime * 100);
             if (transform.rotation.eulerAngles.x >= lowerBound && transform.rotation.eulerAngles.x <= upperBound)
             {
                 isSet = true;
@@ -56,6 +63,11 @@ public class RotateOnClick : MonoBehaviour
             {
                 isSet = false;
             }
+        }
+
+        if (isSet && other.isSet)
+        {
+            clockPuzzle.transform.position = Vector3.MoveTowards(clockPuzzle.transform.position, destination, 0.4f * Time.deltaTime * 100);
         }
         
     }

@@ -36,7 +36,7 @@ public class Giggle : MonoBehaviour
             //     connectedObject.transform.position = transform.position;
             //     RoomSwapManager.instance.canSwap = true;
             // }
-            transform.position = Vector3.MoveTowards(transform.position, point1, 0.16f);
+            transform.position = Vector3.MoveTowards(transform.position, point1, 0.4f * Time.deltaTime * 100);
             if (transform.position == point1)
             {
                 _isMoving = false;

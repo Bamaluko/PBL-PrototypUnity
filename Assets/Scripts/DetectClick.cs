@@ -32,7 +32,7 @@ public class DetectClick : MonoBehaviour
                 RoomSwapManager.instance.canSwap = true;
                 connectedObject.GetComponent<Giggle>().enabled = false;
             }
-            transform.position = Vector3.MoveTowards(transform.position, point1.position, 0.16f);
+            transform.position = Vector3.MoveTowards(transform.position, point1.position, 0.4f * Time.deltaTime * 100);
         }
     }
 }
