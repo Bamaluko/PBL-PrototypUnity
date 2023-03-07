@@ -25,18 +25,12 @@ public class RotateOnClick : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
         if (isRotating)
         {
-            transform.Rotate(Vector3.up, -.25f * Time.deltaTime * 100);
+            transform.Rotate(Vector3.up, -.35f * Time.deltaTime * 100);
             Debug.Log(transform.rotation.eulerAngles.x);
             if (transform.rotation.eulerAngles.x >= lowerBound && transform.rotation.eulerAngles.x <= upperBound)
             {
@@ -44,6 +38,18 @@ public class RotateOnClick : MonoBehaviour
                 if (other.isSet)
                 {
                     isRotating = false;
+                    GetComponentInChildren<ParticleSystem>().startColor = new Color(0, 255, 255);
+                    other.GetComponentInChildren<ParticleSystem>().startColor = new Color(0, 255, 255);
+                    transform.eulerAngles = new Vector3(
+                        (lowerBound + upperBound) / 2,
+                        transform.eulerAngles.y,
+                        transform.eulerAngles.z
+                    );
+                    other.transform.eulerAngles = new Vector3(
+                        (other.lowerBound + other.upperBound) / 2,
+                        other.transform.eulerAngles.y,
+                        other.transform.eulerAngles.z
+                    );
                 }
             }
             else
