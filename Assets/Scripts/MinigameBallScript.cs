@@ -8,7 +8,7 @@ public class MinigameBallScript : MonoBehaviour
 {
     private Vector3 initialPosition;
     public LayerMask tLayers;
-    private bool isDraging;
+    private bool isDraging = false;
 
     private void Start()
     {
@@ -19,23 +19,31 @@ public class MinigameBallScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
+            isDraging = false;
             transform.position = initialPosition;
         }
     }
 
-    private void OnMouseDrag()
+    private void OnMouseDown()
     {
-        Vector3 mouse = Input.mousePosition;
-        Ray castPoint = Camera.main.ScreenPointToRay(mouse);
-        RaycastHit t;
-        if (Physics.Raycast(castPoint, out t, Mathf.Infinity, tLayers))
-        {
-            transform.position = new Vector3(t.point.x, t.point.y, transform.position.z);
-        }
+        isDraging = true;
     }
 
+    private void OnMouseUp()
+    {
+        isDraging = false;
+    }
     private void Update()
     {
-        throw new NotImplementedException();
+        if (isDraging)
+        {
+            Vector3 mouse = Input.mousePosition;
+            Ray castPoint = Camera.main.ScreenPointToRay(mouse);
+            RaycastHit t;
+            if (Physics.Raycast(castPoint, out t, Mathf.Infinity, tLayers))
+            {
+                transform.position = new Vector3(t.point.x, t.point.y, transform.position.z);
+            }
+        }
     }
 }
