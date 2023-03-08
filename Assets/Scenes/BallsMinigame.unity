@@ -5519,7 +5519,7 @@ MonoBehaviour:
     m_Bits: 64
   destination: {fileID: 1994529984}
   color: {r: 0, g: 1, b: 1, a: 1}
-  id: 0
+  id: 2
 --- !u!135 &510427117
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11679,7 +11679,7 @@ MonoBehaviour:
     m_Bits: 64
   destination: {fileID: 373422161}
   color: {r: 1, g: 1, b: 0, a: 1}
-  id: 0
+  id: 1
 --- !u!54 &1830016280
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11766,7 +11766,7 @@ MonoBehaviour:
     m_Bits: 64
   destination: {fileID: 162284895}
   color: {r: 1, g: 0, b: 1, a: 1}
-  id: 0
+  id: 3
 --- !u!135 &1858413838
 SphereCollider:
   m_ObjectHideFlags: 0
