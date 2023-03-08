@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 395
+  controlID: 63889
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 401
+  controlID: 63890
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -601,9 +601,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 19.325485, y: -20.685398, z: 114.07667}
+    m_Target: {x: 18.643064, y: -45.474625, z: 204.79327}
     speed: 2
-    m_Value: {x: 19.325485, y: -20.685398, z: 114.07667}
+    m_Value: {x: 18.643064, y: -45.474625, z: 204.79327}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -650,13 +650,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.26268473, y: 0.0072340607, z: -0.0019670124, w: 0.96485287}
+    m_Target: {x: 0.1452957, y: -0.00000405799, z: 0.0000028674563, w: 0.9893952}
     speed: 2
-    m_Value: {x: -0.26268473, y: -0.0072340607, z: 0.0019670124, w: -0.9648528}
+    m_Value: {x: -0.1452957, y: 0.00000405799, z: -0.0000028674563, w: -0.98939526}
   m_Size:
-    m_Target: 45.317123
+    m_Target: 97.07889
     speed: 2
-    m_Value: 45.317123
+    m_Value: 97.07889
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -722,21 +722,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Materials
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Materials
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Hyperbook\Desktop\Vatican archives\Semestr6\PBL-PrototypUnity
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e45a0000
-    m_LastClickedID: 23268
+    m_SelectedIDs: de5a0000
+    m_LastClickedID: 23262
     m_ExpandedIDs: 00000000d85a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -852,9 +852,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: b05a0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 34fbffff
+      m_ExpandedIDs: 6cb1feff10cefeffa81fffffea40ffffd662fffffc67ffffe47effff0680ffffc2eaffff1cfaffff34fbffff905a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

@@ -11,6 +11,9 @@ public class RoomSwapManager : MonoBehaviour
     public GameObject darkWorld;
     public int buttonPuzzle = 0;
 
+    public int ballsCollected = 0;
+    
+
     private void Start()
     {
         instance = this;
