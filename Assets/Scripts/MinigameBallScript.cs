@@ -8,6 +8,7 @@ public class MinigameBallScript : MonoBehaviour
 {
     private Vector3 initialPosition;
     public LayerMask tLayers;
+    private bool isDraging;
 
     private void Start()
     {
@@ -18,7 +19,6 @@ public class MinigameBallScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("Dupa");
             transform.position = initialPosition;
         }
     }
@@ -34,5 +34,8 @@ public class MinigameBallScript : MonoBehaviour
         }
     }
 
-    
+    private void Update()
+    {
+        throw new NotImplementedException();
+    }
 }
