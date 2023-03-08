@@ -10,7 +10,8 @@ public class BallPuzzleFinisher : MonoBehaviour
     public  bool  ball2 = false;
     public  bool  ball3 = false;
 
-
+    public GameObject plane;
+    public Transform destination;
     private void Start()
     {
         if(instance == null)
@@ -22,7 +23,9 @@ public class BallPuzzleFinisher : MonoBehaviour
     {
         if (ball1 && ball2 && ball3)
         {
-            //Do things
+            plane.transform.position =
+                Vector3.MoveTowards(plane.transform.position, destination.position, 0.4f * Time.deltaTime * 100);
+
         }
     }
 }
