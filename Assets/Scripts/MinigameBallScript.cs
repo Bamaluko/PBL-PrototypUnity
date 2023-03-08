@@ -9,6 +9,9 @@ public class MinigameBallScript : MonoBehaviour
     private Vector3 initialPosition;
     public LayerMask tLayers;
     private bool isDraging = false;
+    public Transform destination;
+    public Color color;
+    public int id = 0;
 
     private void Start()
     {
@@ -43,6 +46,39 @@ public class MinigameBallScript : MonoBehaviour
             if (Physics.Raycast(castPoint, out t, Mathf.Infinity, tLayers))
             {
                 transform.position = new Vector3(t.point.x, t.point.y, transform.position.z);
+            }
+        }
+
+        if (Vector2.Distance(transform.position, destination.position) <= 3)
+        {
+            GetComponent<Renderer>().material.color = color;
+            if (id == 1)
+            {
+                BallPuzzleFinisher.instance.ball1 = true;
+            }
+            else if (id == 2)
+            {
+                BallPuzzleFinisher.instance.ball2 = true;
+            }
+            else if (id == 3)
+            {
+                BallPuzzleFinisher.instance.ball3 = true;
+            }
+        }
+        else
+        {
+            GetComponent<Renderer>().material.color = Color.blue;
+            if (id == 1)
+            {
+                BallPuzzleFinisher.instance.ball1 = false;
+            }
+            else if (id == 2)
+            {
+                BallPuzzleFinisher.instance.ball2 = false;
+            }
+            else if (id == 3)
+            {
+                BallPuzzleFinisher.instance.ball3 = false;
             }
         }
     }
