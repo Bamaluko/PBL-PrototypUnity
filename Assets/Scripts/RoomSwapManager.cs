@@ -12,6 +12,9 @@ public class RoomSwapManager : MonoBehaviour
     public int buttonPuzzle = 0;
 
     public int ballsCollected = 0;
+
+    public int rootChance = 20;
+    public CurvesScript[] rootableObjects;
     
 
     private void Start()
@@ -27,6 +30,15 @@ public class RoomSwapManager : MonoBehaviour
         {
             brightWorld.SetActive(!brightWorld.activeSelf);
             darkWorld.SetActive(!darkWorld.activeSelf);
+            if (brightWorld.activeSelf)
+            {
+                foreach (var element in rootableObjects)
+                {
+                    element.ActivateRoots(rootChance);
+                }
+                rootChance++;
+            }
+
         }
     }
 }
