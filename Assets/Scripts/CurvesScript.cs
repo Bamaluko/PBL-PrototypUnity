@@ -10,7 +10,9 @@ public class CurvesScript : MonoBehaviour
     public GameObject[] roots;
 
     private int clickCounter = 0;
-    private bool canInteract = true;
+    public bool canInteract = true;
+
+    private bool isOver = false;
     
     // Start is called before the first frame update
     void Start()
@@ -18,16 +20,15 @@ public class CurvesScript : MonoBehaviour
         clickCounter = roots.Length;
     }
 
-    // Update is called once per frame
-    private void OnMouseDrag()
+    private void OnMouseEnter()
     {
-        if (canInteract)
-        {
-            transform.position = new Vector3(transform.position.x + .2f, transform.position.y, transform.position.z);
-        }
-
+        isOver = true;
     }
 
+    private void OnMouseExit()
+    {
+        isOver = false;
+    }
 
     public void ActivateRoots(int chance)
     {
@@ -43,7 +44,7 @@ public class CurvesScript : MonoBehaviour
 
     private void Update()
     {
-        if(!canInteract & Input.GetMouseButtonDown(1))
+        if(!canInteract & Input.GetMouseButtonDown(1) && isOver)
         {
             roots[clickCounter - 1].SetActive(false);
             clickCounter--;
