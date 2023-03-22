@@ -10,6 +10,7 @@ public class DetectClick : MonoBehaviour
     public Transform point1;
     private bool _isMoving = false;
 
+
     private void Start()
     {
         _renderer = GetComponent<Renderer>();

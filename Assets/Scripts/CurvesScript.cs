@@ -12,7 +12,7 @@ public class CurvesScript : MonoBehaviour
     private int clickCounter = 0;
     public bool canInteract = true;
 
-    private bool isOver = false;
+    public bool isOver = false;
     
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,7 @@ public class CurvesScript : MonoBehaviour
 
     public void ActivateRoots(int chance)
     {
-        if (Random.Range(0, 100) < chance)
+        if (Random.Range(0, 100) < chance && canInteract)
         {
             canInteract = false;
             foreach (var root in roots)

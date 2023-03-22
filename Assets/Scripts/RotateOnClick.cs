@@ -20,6 +20,7 @@ public class RotateOnClick : MonoBehaviour
 
     private void OnMouseDown()
     {
+
         isRotating = true;
         RoomSwapManager.instance.canSwap = false;
     }

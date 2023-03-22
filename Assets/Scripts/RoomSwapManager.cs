@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.SceneManagement;
 
 public class RoomSwapManager : MonoBehaviour
 {
@@ -13,8 +15,14 @@ public class RoomSwapManager : MonoBehaviour
 
     public int ballsCollected = 0;
 
-    public int rootChance = 20;
-    public CurvesScript[] rootableObjects;
+    private int turn = 0;
+    public GameObject[] objectsToShow;
+    public GameObject[] otherObjectsToShow;
+    private bool gameLost = false;
+    private float lostCounter = 0;
+
+    public GameObject fogOfWar;
+    public Transform fogOfWarPoint;
     
 
     private void Start()
@@ -26,19 +34,84 @@ public class RoomSwapManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && canSwap)
+        if (gameLost)
         {
+            lostCounter += Time.deltaTime;
+            if (lostCounter >= 3)
+            {
+                SceneManager.LoadScene("HopaScene");
+            }
+        }
+        else if(Input.GetKeyDown(KeyCode.Space) && canSwap)
+        {
+            Instantiate(fogOfWar, fogOfWarPoint.position, Quaternion.identity);
             brightWorld.SetActive(!brightWorld.activeSelf);
             darkWorld.SetActive(!darkWorld.activeSelf);
             if (brightWorld.activeSelf)
             {
-                foreach (var element in rootableObjects)
-                {
-                    element.ActivateRoots(rootChance);
-                }
-                rootChance++;
+                turn++;
+                RoomChangeManager();
             }
-
+            
         }
+    }
+
+    void RoomChangeManager()
+    {
+        if (objectsToShow.Length >= turn)
+        {
+            objectsToShow[turn - 1].SetActive(true);
+        }
+        switch (turn)
+        {
+            case 4:
+                otherObjectsToShow[0].SetActive(false);
+                otherObjectsToShow[1].SetActive(true);
+                break;
+            case 6:
+                otherObjectsToShow[5].SetActive(true);
+                break;
+            case 7:
+                otherObjectsToShow[8].SetActive(true);
+                break;
+            case 8:
+                otherObjectsToShow[1].SetActive(false);
+                otherObjectsToShow[2].SetActive(true);
+                break;
+            case 10:
+                otherObjectsToShow[6].SetActive(true);
+                break;
+            case 11:
+                otherObjectsToShow[8].SetActive(true);
+                break;
+            case 12:
+                otherObjectsToShow[2].SetActive(false);
+                otherObjectsToShow[3].SetActive(true);
+                otherObjectsToShow[7].SetActive(true);
+                break;
+            case 13:
+                otherObjectsToShow[8].SetActive(true);
+                break;
+            case 14:
+                otherObjectsToShow[3].SetActive(false);
+                otherObjectsToShow[4].SetActive(true);
+                break;
+            case 16:
+                otherObjectsToShow[11].SetActive(true);
+                break;
+            case 17:
+                otherObjectsToShow[11].SetActive(false);
+                otherObjectsToShow[12].SetActive(false);
+                otherObjectsToShow[13].SetActive(true);
+                break;
+            case 18:
+                
+                otherObjectsToShow[4].SetActive(false);
+                otherObjectsToShow[14].SetActive(true);
+                otherObjectsToShow[15].SetActive(true);
+                gameLost = true;
+                break;
+        }
+
     }
 }

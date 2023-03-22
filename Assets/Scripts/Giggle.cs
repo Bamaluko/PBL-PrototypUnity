@@ -11,6 +11,7 @@ public class Giggle : MonoBehaviour
     private bool _isBackwards = false;
     public GameObject connectedObject;
 
+    // Start is called before the first frame update
     private void Start()
     {
         _renderer = GetComponent<Renderer>();
@@ -19,9 +20,9 @@ public class Giggle : MonoBehaviour
 
     private void OnMouseDown()
     {
+
         _isMoving = true;
-        if (enabled)
-        {
+        if (enabled) { 
             RoomSwapManager.instance.canSwap = false;
         }
     }
@@ -30,12 +31,6 @@ public class Giggle : MonoBehaviour
     {
         if (_isMoving)
         {
-            // if (transform.position == point1.position)
-            // {
-            //     _isMoving = false;
-            //     connectedObject.transform.position = transform.position;
-            //     RoomSwapManager.instance.canSwap = true;
-            // }
             transform.position = Vector3.MoveTowards(transform.position, point1, 0.4f * Time.deltaTime * 100);
             if (transform.position == point1)
             {

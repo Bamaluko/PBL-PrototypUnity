@@ -12,11 +12,12 @@ public class ButtonClickScript : MonoBehaviour
     public Transform destination;
     private void OnMouseDown()
     {
+
         if (RoomSwapManager.instance.buttonPuzzle != 4)
-        {
+        { 
             if (RoomSwapManager.instance.buttonPuzzle == id - 1)
             {
-                _renderer.material.color = Color.cyan;
+                   _renderer.material.color = Color.magenta;
                 RoomSwapManager.instance.buttonPuzzle += 1;
             }
             else
