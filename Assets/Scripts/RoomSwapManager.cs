@@ -23,6 +23,8 @@ public class RoomSwapManager : MonoBehaviour
 
     public GameObject fogOfWar;
     public Transform fogOfWarPoint;
+
+    private float roomSwapCounter = 1;
     
 
     private void Start()
@@ -42,17 +44,25 @@ public class RoomSwapManager : MonoBehaviour
                 SceneManager.LoadScene("HopaScene");
             }
         }
-        else if(Input.GetKeyDown(KeyCode.Space) && canSwap)
+        else if(Input.GetKeyDown(KeyCode.Space) && canSwap && roomSwapCounter == 1)
         {
+            roomSwapCounter = .5f;
             Instantiate(fogOfWar, fogOfWarPoint.position, Quaternion.identity);
-            brightWorld.SetActive(!brightWorld.activeSelf);
-            darkWorld.SetActive(!darkWorld.activeSelf);
-            if (brightWorld.activeSelf)
+        }
+        else if(roomSwapCounter != 1)
+        {
+            roomSwapCounter -= Time.deltaTime;
+            if (roomSwapCounter <= 0)
             {
-                turn++;
-                RoomChangeManager();
+                roomSwapCounter = 1;
+                brightWorld.SetActive(!brightWorld.activeSelf);
+                darkWorld.SetActive(!darkWorld.activeSelf);
+                if (brightWorld.activeSelf)
+                {
+                    turn++;
+                    RoomChangeManager();
+                }
             }
-            
         }
     }
 

@@ -48764,6 +48764,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1267003625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1267003626}
+  m_Layer: 0
+  m_Name: CoverPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1267003626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267003625}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 23.55, y: -0.31, z: 25.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1279143979
 GameObject:
   m_ObjectHideFlags: 0
@@ -75315,8 +75346,8 @@ MonoBehaviour:
   - {fileID: 1126146908}
   - {fileID: 1119278836}
   - {fileID: 151847467}
-  fogOfWar: {fileID: 7801254936712146983, guid: 20ac494a7722f974c9ec89aee773a688, type: 3}
-  fogOfWarPoint: {fileID: 2093978407}
+  fogOfWar: {fileID: 6797603745913350843, guid: d8fa813ad146f1f409e5d744b0b54da1, type: 3}
+  fogOfWarPoint: {fileID: 1267003626}
 --- !u!1 &1665770713
 GameObject:
   m_ObjectHideFlags: 0
